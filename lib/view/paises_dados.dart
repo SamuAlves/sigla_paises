@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:sigla_paises/services/requisicao.dart';
 
 class PaisesDados extends StatefulWidget {
-  const PaisesDados({Key? key}) : super(key: key);
+  final String pais;
+
+  PaisesDados({this.pais = ''});
 
   @override
   _PaisesDadosState createState() => _PaisesDadosState();
@@ -19,7 +21,8 @@ class _PaisesDadosState extends State<PaisesDados> {
               builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                 if (snapshot.hasData) {
                   List paises = snapshot.data;
-                  return _listaPaises(paises);
+                  return _listaPaises(
+                      _filtraPaise(widget.pais, paises, context));
                 } else {
                   return Container(
                       alignment: Alignment.center,
@@ -83,5 +86,21 @@ class _PaisesDadosState extends State<PaisesDados> {
                     fontSize: 16.0,
                   ),
                 )));
+  }
+
+  List _filtraPaise(String pais, List paises, BuildContext context) {
+    List filtro = [];
+    String paisFormatado = '';
+    if (pais != '') {
+      String primeiraLetra = pais.substring(0, 1);
+      paisFormatado =
+          pais.replaceFirst(primeiraLetra, primeiraLetra.toUpperCase());
+    }
+    paises.forEach((p) {
+      if (p["name"] == paisFormatado) {
+        filtro.add(p);
+      }
+    });
+    return filtro.isEmpty ? paises : filtro;
   }
 }
