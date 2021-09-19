@@ -12,17 +12,20 @@ class PaisesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sigla dos Paises'), actions: [
-        IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                          PaisesScreen(pais: "")));
-            },
-            icon: Icon(Icons.refresh)),
-      ]),
+      appBar: AppBar(
+          backgroundColor: Colors.orangeAccent,
+          title: Text('Sigla dos Paises'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              PaisesScreen(pais: "")));
+                },
+                icon: Icon(Icons.refresh)),
+          ]),
       body: PaisesDados(pais: pais),
       drawer: Menu(),
     );

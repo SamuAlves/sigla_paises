@@ -32,7 +32,9 @@ class _PaisesDadosState extends State<PaisesDados> {
                           child: Text(
                             'Carregando Dados',
                             style: TextStyle(
-                              fontSize: 16.0,
+                              fontSize: 20.0,
+                              backgroundColor: Colors.orangeAccent,
+                              color: Colors.white,
                             ),
                           )));
                 }
@@ -50,29 +52,21 @@ class _PaisesDadosState extends State<PaisesDados> {
                 itemBuilder: (context, index) {
                   return Container(
                     child: Card(
-                      child: ExpansionTile(
+                      child: ListTile(
                         title: Text(
                           '${paises[index]["name"]}',
                           style: TextStyle(
-                              color: Colors.blueAccent,
+                              color: Colors.orangeAccent,
                               fontWeight: FontWeight.bold,
                               fontSize: 20.0),
                         ),
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20),
-                            child: Container(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "${paises[index]["code"] ?? "--"}",
-                                style: TextStyle(
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16.0),
-                              ),
-                            ),
-                          )
-                        ],
+                        subtitle: Text(
+                          "${paises[index]["code"] ?? "--"}",
+                          style: TextStyle(
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16.0),
+                        ),
                       ),
                     ),
                   );

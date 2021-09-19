@@ -18,7 +18,7 @@ class Menu extends StatelessWidget with Mensagem {
           children: [
             Container(
               alignment: Alignment.center,
-              color: Colors.blue,
+              color: Colors.orangeAccent,
               height: 100.0,
               child: Text(
                 'Menu',
@@ -69,7 +69,7 @@ class Menu extends StatelessWidget with Mensagem {
                                     child: Text(
                                       "OK",
                                       style:
-                                          TextStyle(color: Colors.blueAccent),
+                                          TextStyle(color: Colors.orangeAccent),
                                     )),
                               ],
                               mainAxisAlignment: MainAxisAlignment.end,
