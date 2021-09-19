@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:sigla_paises/view/menu.dart';
 import 'package:sigla_paises/view/paises_dados.dart';

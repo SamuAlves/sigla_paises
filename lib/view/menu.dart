@@ -1,11 +1,12 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:sigla_paises/view/mensagem.dart';
 import 'package:sigla_paises/view/paises_screen.dart';
-import 'package:bot_toast/bot_toast.dart';
 
 import 'ajuda.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatelessWidget with Mensagem {
   final TextEditingController search = TextEditingController();
 
   @override
@@ -48,11 +49,16 @@ class Menu extends StatelessWidget {
                                 FlatButton(
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      showMensagem(
+                                          "Operação Cancelada", context);
                                     },
                                     child: Text("Cancelar")),
                                 FlatButton(
                                     onPressed: () {
                                       Navigator.pop(context);
+                                      showMensagem(
+                                          "Pesquisa realizada para o pais ${search.text}",
+                                          context);
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
